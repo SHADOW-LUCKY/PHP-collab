@@ -1,8 +1,8 @@
 <?php
 /* Capturamos las rutas de la url */
 
-$rutaArray = explode("/", $_SERVER['REQUEST_URI']);
-$rutaArray = array_filter($rutaArray);
+$rutas = explode("/", $_SERVER['REQUEST_URI']);
+$rutas = array_filter($rutas);
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,29 @@ $rutaArray = array_filter($rutaArray);
   <link rel="stylesheet" href="views/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="views/assets/plugins/adminlte/dist/css/adminlte.min.css">
+  
+<!-- jQuery -->
+<script src="views/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="views/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="views/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="views/assets/plugins/adminlte/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+ <!-- DataTables  & Plugins -->
+ <script src="views/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="views/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="views/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="views/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="views/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="views/assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="views/assets/plugins/jszip/jszip.min.js"></script>
+<script src="views/assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="views/assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="views/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="views/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="views/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -49,7 +72,7 @@ $rutaArray = array_filter($rutaArray);
 
     <!-- Main content -->
     <?php
-      include "pages/productos/productos.php";
+      include "views/pages/productos/productos.php";
     ?>
     <!-- /.content -->
   </div>
@@ -69,47 +92,7 @@ $rutaArray = array_filter($rutaArray);
 </div>
 <!-- wrapper -->
 
-<!-- jQuery -->
-<script src="views/assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="views/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="views/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="views/assets/plugins/adminlte/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
- <!-- DataTables  & Plugins -->
- <script src="views/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="views/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="views/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="views/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="views/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="views/assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="views/assets/plugins/jszip/jszip.min.js"></script>
-<script src="views/assets/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="views/assets/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="views/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="views/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="views/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script>
 
-$(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-
-</script>
 
 </body>
 </html>
