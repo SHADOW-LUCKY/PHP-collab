@@ -1,14 +1,14 @@
 <?php
-require_once("../Conexion/Conectar.php");
+require_once("../Conexion/Conexion.php");
 
 class Clientes extends Conectar{
     public function __construct(){
         parent::__construct();
     }
-
+    #metodos
     public function get_Clientes(){
         try {
-            $sql = "SELECT * FROM Clientes";
+            $sql = "SELECT * FROM Cliente";
             $stm = $this-> dbCnx -> prepare($sql);
             $stm -> execute();
             return $stm -> fetchAll();
@@ -19,11 +19,11 @@ class Clientes extends Conectar{
 
     public function getClientesID($ID){
         try {
-            $sql = "SELECT * FROM Clientes WHERE id_Cliente = ?";
+            $sql = "SELECT * FROM Cliente WHERE Cliente_ID = ?";
             $stm = $this-> dbCnx -> prepare($sql);
             $stm->bindValue(1,$ID);
             $stm -> execute();
-            return $stm -> fetchAll();
+            return $stm -> fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -31,13 +31,11 @@ class Clientes extends Conectar{
 
     public function insertClientes($company,$telefono,$email){
         try {
-            $sql = "INSERT INTO Clientes (CompanyName,Telefono,Email) VALUES (?, ?, ?)"; 
+            $sql = "INSERT INTO Cliente(CompanyName,Telefono,Email) VALUES (?, ?, ?)"; 
             $stm = $this-> dbCnx -> prepare($sql);
-            $stm->bindValue(1,$nombre);
-            $stm->bindValue(2,$edad);
-            $stm->bindValue(3,$telefono);
-            $stm->bindValue(4,$sexo);
-            $stm->bindValue(5,$direccion);
+            $stm->bindValue(1,$company);
+            $stm->bindValue(2,$telefono);
+            $stm->bindValue(3,$email);
             $stm->execute();
         } catch (Exception $e) {
             return $e->getMessage();
@@ -46,7 +44,7 @@ class Clientes extends Conectar{
 
     public function deleteCliente($ID){
         try {
-            $sql = "DELETE FROM campers WHERE id = :id";
+            $sql = "DELETE FROM Cliente WHERE Cliente_ID = ?";
             $stm = $this-> dbCnx -> prepare($sql);
             $stm->bindValue(1, $ID);
             $stm -> execute();
@@ -57,13 +55,17 @@ class Clientes extends Conectar{
     }
 
 }
+#empleados
+#empleados
+#empleados
 class Empleados extends Conectar{
     public function __construct(){
         parent::__construct();
     }
+    #metodos
     function getEmpleados(){
         try {
-            $sql = "SELECT * FROM Empleados";
+            $sql = "SELECT * FROM empleado";
             $stm = $this-> dbCnx -> prepare($sql);
             $stm -> execute();
             return $stm -> fetchAll();
@@ -73,7 +75,7 @@ class Empleados extends Conectar{
     }
     function getEmpleadosID($ID) {
         try {
-            $sql = "SELECT * FROM Empleados WHERE id_Empleado = ?";
+            $sql = "SELECT * FROM empleado WHERE Empleado_ID = ?";
             $stm = $this-> dbCnx -> prepare($sql);
             $stm->bindValue(1,$ID);
             $stm -> execute();
@@ -84,7 +86,7 @@ class Empleados extends Conectar{
     }
     function insertEmpleados( $nombre,$telefono,$email){
         try {
-            $sql = "INSERT INTO Empleados(Empleado_nombre,Telefono,Email) VALUES (?, ?, ?)"; 
+            $sql = "INSERT INTO empleado(Empleado_nombre,Telefono,Email) VALUES (?, ?, ?)"; 
             $stm = $this-> dbCnx -> prepare($sql);
             $stm->bindValue(1,$nombre);
             $stm->bindValue(2,$telefono);
@@ -94,7 +96,54 @@ class Empleados extends Conectar{
             return $e->getMessage();
         }
     }
-        
+}
+#Productos
+#Productos
+#Productos
+Class Productos extends Conectar{
+    public function __construct(){
+        parent::__construct();
+    }
+    #metodos
+    function getProductos(){
+        try {
+            $sql = "SELECT * FROM productos";
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm -> execute();
+            return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+}
+#Obras
+#Obras
+#Obras
+Class Obras extends Conectar{
+    public function __construct(){
+        parent::__construct();
+    }
+    #metodos
+    function getObras(){
+        try {
+            $sql = "SELECT * FROM Obras";
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm -> execute();
+            return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    function INNERObras(){
+        try {
+            $sql = "SELECT Obras.Obra_nombre, Cliente.CompanyName FROM Obras Obras INNER JOIN Cliente ON Obras.ClienteObra = Cliente.Cliente_ID;";
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm -> execute();
+            return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }
