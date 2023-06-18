@@ -35,6 +35,9 @@ $rutas = array_filter($rutas);
 <script src="views/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="views/assets/plugins/adminlte/dist/js/adminlte.min.js"></script>
+<!-- boostrap 5 -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- AdminLTE for demo purposes -->
  <!-- DataTables  & Plugins -->
  <script src="views/assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -72,7 +75,7 @@ $rutas = array_filter($rutas);
 
     <!-- Main content -->
     <?php
-      include "views/pages/obras/obras.php";
+      include "views/pages/clientes/clientes.php";
     ?>
     <!-- /.content -->
   </div>
