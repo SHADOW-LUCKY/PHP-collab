@@ -14,14 +14,9 @@ $body = json_decode(file_get_contents("php://input"), true);
             $datos=$Clientes->insertClientes($body["CompanyName"],$body["Telefono"],$body["Email"]);
             echo json_encode("Clientes insertado correctamente");
         break;
-
-        case "Update":
-            $datos=$Clientes->update_Clientes($body["id"],$body["CompanyName"],$body["Telefono"],$body["Email"]);
-            echo json_encode("Clientes actualizado correctamente");
-        break;
         
         case "Delete":
-            $datos=$Clientes->deleteCliente($body["id"]);
+            $datos=$Clientes->deleteCliente($body["Cliente_ID"]);
             echo json_encode("Clientes eliminado correctamente");
         break;
     }

@@ -41,7 +41,7 @@ class Clientes extends Conectar{
             return $e->getMessage();
         }
     }
-
+    #delete
     public function deleteCliente($ID){
         try {
             $sql = "DELETE FROM Cliente WHERE Cliente_ID = ?";
@@ -97,6 +97,18 @@ class Empleados extends Conectar{
             return $e->getMessage();
         }
     }
+    #delete
+    function deleteEmpleado($ID){
+        try {
+            $sql = "DELETE FROM empleado WHERE Empleado_ID = ?";
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm->bindValue(1, $ID);
+            $stm -> execute();
+            return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
 #Productos
 #Productos
@@ -131,6 +143,18 @@ Class Productos extends Conectar{
         }
         
     }
+    #delete
+    function deleteProducto($ID){
+        try {
+            $sql = "DELETE FROM productos WHERE Producto_ID = ?";
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm->bindValue(1, $ID);
+            $stm -> execute();
+            return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
 }
 #Obras
@@ -159,6 +183,18 @@ Class Obras extends Conectar{
             $stm->bindValue(1,$Obra_nombre);
             $stm->bindValue(2,$ClienteObra);
             $stm->execute();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    #delete
+    function deleteObra($ID){
+        try {
+            $sql = "DELETE FROM Obras WHERE Obra_ID = ?";
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm->bindValue(1, $ID);
+            $stm -> execute();
+            return $stm -> fetchAll();
         } catch (Exception $e) {
             return $e->getMessage();
         }

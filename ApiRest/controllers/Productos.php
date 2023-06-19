@@ -14,14 +14,9 @@ $body = json_decode(file_get_contents("php://input"), true);
             $datos=$Productos->insertProductos($body["Producto_nombre"],$body["Producto_descripcion"],$body["Producto_precio"],$body["Producto_stock"],);
             echo json_encode("Productos insertado correctamente");
         break;
-
-        case "Update":
-            $datos=$Productos->update_Productos($body["id"],$body["CompanyName"],$body["Telefono"],$body["Email"]);
-            echo json_encode("Productos actualizado correctamente");
-        break;
         
         case "Delete":
-            $datos=$Productos->deleteCliente($body["id"]);
+            $datos=$Productos->deleteProducto($body["Producto_ID"]);
             echo json_encode("Productos eliminado correctamente");
         break;
     }
