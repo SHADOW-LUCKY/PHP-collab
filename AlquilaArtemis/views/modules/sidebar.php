@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="views/pages/salidas" class="nav-link">
+            <a href="/tests/PHP-collab/AlquilaArtemis/views/pages/productos" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Devoluciones (Entradas)
@@ -53,7 +53,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/views/pages/salidas/salidas.php" class="nav-link">
+            <a href="/tests/PHP-collab/AlquilaArtemis/views/pages/productos" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Inventarios
@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="views/pages/salidas/salidas.php" class="nav-link">
+            <a href="/tests/PHP-collab/AlquilaArtemis/views/pages/productos" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Liquidaciones
@@ -92,7 +92,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../charts/flot.html" class="nav-link">
+                <a href="/tests/PHP-collab/AlquilaArtemis/views/pages/clientes" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Clientes</p>
                 </a>

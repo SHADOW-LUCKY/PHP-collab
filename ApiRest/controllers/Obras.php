@@ -11,7 +11,7 @@ $body = json_decode(file_get_contents("php://input"), true);
         break;
 
         case "Insert":
-            $datos=$Obras->insertObras($body["CompanyName"],$body["Telefono"],$body["Email"]);
+            $datos=$Obras->insertObras($body["Obra_nombre"],$body["ClienteObra"]);
             echo json_encode("Obras insertado correctamente");
         break;
 
@@ -23,10 +23,6 @@ $body = json_decode(file_get_contents("php://input"), true);
         case "Delete":
             $datos=$Obras->deleteCliente($body["id"]);
             echo json_encode("Obras eliminado correctamente");
-        break;
-        case "Inner":
-            $datos=$Obras->INNERObras();
-            echo json_encode($datos);
-        break;    
+        break;   
     }
 ?>

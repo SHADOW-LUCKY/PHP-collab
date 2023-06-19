@@ -75,7 +75,7 @@ $rutas = array_filter($rutas);
 
     <!-- Main content -->
     <?php
-      include "views/pages/clientes/clientes.php";
+        include "views/pages/productos/productos.php";
     ?>
     <!-- /.content -->
   </div>

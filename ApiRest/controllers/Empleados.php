@@ -11,8 +11,8 @@ $body = json_decode(file_get_contents("php://input"), true);
         break;
 
         case "Insert":
-            $datos=$Empleados->insertEmpleados($body["CompanyName"],$body["Telefono"],$body["Email"]);
-            echo json_encode("Empleados insertado correctamente");
+            $datos=$Empleados->insertEmpleados($body["Empleado_nombre"],$body["Telefono"],$body["Email"]);
+            echo json_encode("Empleado insertado correctamente");
         break;
 
         case "Update":

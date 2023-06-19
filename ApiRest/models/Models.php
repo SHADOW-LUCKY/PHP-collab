@@ -28,7 +28,7 @@ class Clientes extends Conectar{
             return $e->getMessage();
         }
     }
-
+    #insert
     public function insertClientes($company,$telefono,$email){
         try {
             $sql = "INSERT INTO Cliente(CompanyName,Telefono,Email) VALUES (?, ?, ?)"; 
@@ -84,6 +84,7 @@ class Empleados extends Conectar{
             return $e->getMessage();
         }
     }
+    #insert
     function insertEmpleados( $nombre,$telefono,$email){
         try {
             $sql = "INSERT INTO empleado(Empleado_nombre,Telefono,Email) VALUES (?, ?, ?)"; 
@@ -115,6 +116,21 @@ Class Productos extends Conectar{
             return $e->getMessage();
         }
     }
+    #insert
+    function insertProductos($nombre,$descripcion,$precio,$stock){
+        try {
+            $sql = "INSERT INTO productos(Producto_nombre,Producto_descripcion,Producto_precio,Producto_stock) VALUES (?, ?, ?, ?)"; 
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm->bindValue(1,$nombre);
+            $stm->bindValue(2,$descripcion);
+            $stm->bindValue(3,$precio);
+            $stm->bindValue(4,$stock);
+            $stm->execute();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+        
+    }
 
 }
 #Obras
@@ -131,6 +147,18 @@ Class Obras extends Conectar{
             $stm = $this-> dbCnx -> prepare($sql);
             $stm -> execute();
             return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    #insert
+    function insertObras($Obra_nombre,$ClienteObra){
+        try {
+            $sql = "INSERT INTO Obras(Obra_nombre,ClienteObra) VALUES (?, ?)"; 
+            $stm = $this-> dbCnx -> prepare($sql);
+            $stm->bindValue(1,$Obra_nombre);
+            $stm->bindValue(2,$ClienteObra);
+            $stm->execute();
         } catch (Exception $e) {
             return $e->getMessage();
         }

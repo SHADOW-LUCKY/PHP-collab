@@ -11,7 +11,7 @@ $body = json_decode(file_get_contents("php://input"), true);
         break;
 
         case "Insert":
-            $datos=$Productos->insertProductos($body["CompanyName"],$body["Telefono"],$body["Email"]);
+            $datos=$Productos->insertProductos($body["Producto_nombre"],$body["Producto_descripcion"],$body["Producto_precio"],$body["Producto_stock"],);
             echo json_encode("Productos insertado correctamente");
         break;
 
